@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 
 // Handle a missing artwork file without showing a broken image.
 const artwork = document.querySelector("#invitation-artwork");
@@ -23,9 +23,11 @@ const replay = document.querySelector(".replay");
 const status = document.querySelector("#opening-status");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 let openingTimer;
+let elephantTimer;
 
 function revealInvitation() {
   window.clearTimeout(openingTimer);
+  window.clearTimeout(elephantTimer);
   opening.hidden = true;
   invitation.hidden = false;
   invitation.classList.add("is-revealing");
@@ -38,16 +40,22 @@ envelope.addEventListener("click", () => {
   if (envelope.disabled) return;
   envelope.disabled = true;
   opening.classList.add("is-opening");
-  status.textContent = "Opening your invitation.";
+  status.textContent = "Opening your invitation. A baby elephant with a blue heart celebrates our baby boy.";
+  if (!reducedMotion.matches) {
+    elephantTimer = window.setTimeout(() => {
+      opening.classList.add("is-showing-elephant");
+    }, 850);
+  }
   // A timer avoids depending on animation events, which may not fire.
-  openingTimer = window.setTimeout(revealInvitation, reducedMotion.matches ? 0 : 1900);
+  openingTimer = window.setTimeout(revealInvitation, reducedMotion.matches ? 0 : 3200);
 });
 skipOpening.addEventListener("click", revealInvitation);
 replay.addEventListener("click", () => {
   window.clearTimeout(openingTimer);
+  window.clearTimeout(elephantTimer);
   invitation.hidden = true;
   invitation.classList.remove("is-revealing");
-  opening.classList.remove("is-opening");
+  opening.classList.remove("is-opening", "is-showing-elephant");
   opening.hidden = false;
   envelope.disabled = false;
   window.scrollTo({ top: 0, behavior: "instant" });
