@@ -1,18 +1,66 @@
-
 # Amalie's Valakappu Invitation
 
-An interactive digital invitation for Amalie's Valakappu celebration on December 12, 2026.
+A digital invitation for Amalie's Valakappu on 12 December 2026.
 
-## Features (planned)
-- Interactive envelope opening
-- Animated blue balloons
-- Hand-painted illustration
-- Event information and RSVP
+The current page presents the final artwork in a responsive ivory layout with a subtle frame. If the image is missing, a clear placeholder appears. A tappable envelope decorated with jasmine-inspired garlands, a blue-sari mother-to-be illustration, blue-and-gold sari-inspired trim, a brass bell and a kolam-inspired motif, and a gold lotus seal opens to reveal the invitation. The guest-facing text warmly welcomes friends and family to the celebration. Guests can skip the opening or replay it. Keyboard and reduced-motion preferences are supported. There are no RSVP forms or other event features yet.
 
 ## Technologies
-- HTML
-- CSS
-- JavaScript
+
+HTML5, CSS3 and vanilla JavaScript. No frameworks, dependencies or build tools.
+
+## Project structure
+
+```text
+index.html                  Page content and accessible invitation image
+css/styles.css              Responsive layout and presentation
+js/main.js                  Envelope opening, replay and missing-image fallback
+assets/images/              Place valakappu-final.jpg here
+assets/animations/          Reserved for later
+assets/audio/               Reserved for later
+.gitignore                  Local settings and temporary-file exclusions
+.nojekyll                   Serves the files directly on GitHub Pages
+readme.md                   Project documentation
+```
+
+Empty .gitkeep files preserve asset folders in Git. The existing VS Code workspace file is preserved.
+
+## Artwork
+
+The exterior illustration is saved separately as `assets/images/envelope-blue-sari.png`. It decorates only the envelope; the final invitation inside is preserved.
+
+The selected JPEG artwork is saved at `assets/images/valakappu-final.jpg`. Keep the exact filename and letter case. The page displays the full image without cropping or distortion. The HTML dimensions match the previously selected 1024 by 1536 portrait; update these if the replacement image has different dimensions. Adjust the image alt text if the content or date changes.
+
+## Preview locally
+
+1. Open this folder in VS Code.
+2. Open `index.html` in a browser by double-clicking it in File Explorer.
+3. Save edits in VS Code and refresh the browser.
+4. Resize the browser to check the mobile layout.
+
+If you already use the optional Live Server extension, right-click `index.html` and choose **Open with Live Server** for automatic refresh.
 
 ## Hosting
-GitHub Pages
+
+All assets use relative paths and the page works as a static GitHub Pages project site. No build step is required. Nothing is committed, pushed or deployed by this setup.
+
+The envelope starts fully closed, with the card concealed until the flap opens. The opening uses CSS layers: the seal fades, the flap rotates, and a small card rises before the full artwork is revealed. JavaScript coordinates the timing and moves keyboard focus to the invitation. Reduced-motion users see the invitation immediately after activating the envelope. Without JavaScript, the invitation remains visible. Future work can add floating balloons and additional celebration details.
+
+## Sharing and publishing
+
+The page includes Open Graph and social-card metadata using the existing invitation image. Messaging apps choose how to crop and cache their previews; the website itself always shows the complete portrait.
+
+The metadata currently assumes the standard address below. This is the intended URL, not confirmation of a live deployment:
+
+https://leravi.github.io/Amalie-s-valakappu-invitation/
+
+If GitHub Pages uses another address or a custom domain, update the canonical, Open Graph and social-image URLs in index.html before sharing.
+
+To publish after review:
+
+1. Commit the website files on the current feature branch and push them to GitHub.
+2. Merge the reviewed changes into main.
+3. In the repository Settings > Pages, choose Deploy from a branch, main, and / (root), then Save.
+4. Wait for the Pages deployment and use the exact URL GitHub displays.
+5. Test that public URL on a phone before sending it to guests.
+
+This is currently a save-the-date. Time and venue can be added once confirmed. No details are invented. Publishing makes the invitation and its photographs publicly accessible.
