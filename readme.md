@@ -47,7 +47,7 @@ The envelope starts fully closed, with the elephant concealed until the flap ope
 
 ## Sharing and publishing
 
-The page includes Open Graph and social-card metadata using the existing invitation image. Messaging apps choose how to crop and cache their previews; the website itself always shows the complete portrait.
+The page includes Open Graph and social-card metadata using a dedicated 1200 by 630 landscape image at `assets/images/messenger-preview-v1.png`. The preview reuses the blue-sari illustration, jasmine and gold details, with a readable invitation title and date. The full invitation inside is unchanged. Messaging apps choose how to crop and cache their previews; the website itself always shows the complete portrait.
 
 The metadata currently assumes the standard address below. This is the intended URL, not confirmation of a live deployment:
 
@@ -64,3 +64,15 @@ To publish after review:
 5. Test that public URL on a phone before sending it to guests.
 
 This is currently a save-the-date. Time and venue can be added once confirmed. No details are invented. Publishing makes the invitation and its photographs publicly accessible.
+
+### Refresh the Messenger preview
+
+1. Commit and push the changed index.html, this README and assets/images/messenger-preview-v1.png, then merge into main.
+2. Wait for the GitHub Pages deployment to succeed.
+3. Open the live image URL to confirm the preview image is available:
+   https://leravi.github.io/Amalie-s-valakappu-invitation/assets/images/messenger-preview-v1.png
+4. Open https://developers.facebook.com/tools/debug/ and sign in if requested.
+5. Paste the invitation homepage URL, choose Debug, and use Scrape Again if shown.
+6. Paste the invitation link into a new Messenger draft and check its preview.
+
+Messenger controls whether and how the preview appears; layouts vary between clients. This cannot hide the actual URL or create a custom inline hyperlink. Previously sent messages may retain an older preview. If the image is redesigned later, save it with a new versioned filename and update the image URLs in index.html, because Meta caches images by URL. No Facebook app, API key or JavaScript SDK is required for this setup.
