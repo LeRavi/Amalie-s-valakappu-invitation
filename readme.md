@@ -43,7 +43,7 @@ If you already use the optional Live Server extension, right-click `index.html` 
 
 All assets use relative paths and the page works as a static GitHub Pages project site. No build step is required. Nothing is committed, pushed or deployed by this setup.
 
-The envelope starts fully closed, with the card concealed until the flap opens. The opening uses CSS layers: the seal fades, the flap rotates, and a small card rises before the full artwork is revealed. JavaScript coordinates the timing and moves keyboard focus to the invitation. Reduced-motion users see the invitation immediately after activating the envelope. Without JavaScript, the invitation remains visible. Future work can add floating balloons and additional celebration details.
+The envelope starts fully closed, with the elephant concealed until the flap opens. The opening uses CSS layers: the seal fades, the flap rotates, and a watercolor baby elephant holding a blue heart rises before the full artwork is revealed. The opening pauses briefly so guests can enjoy the illustration. The elephant is saved as `assets/images/baby-elephant-blue-heart.png`. JavaScript coordinates the timing and moves keyboard focus to the invitation. Reduced-motion users see the invitation immediately after activating the envelope. Without JavaScript, the invitation remains visible. Future work can add floating balloons and additional celebration details.
 
 ## Sharing and publishing
 

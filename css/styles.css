@@ -41,7 +41,7 @@ h1 {
 .asset-note { color: #766344; font: .8rem/1.8 system-ui, sans-serif; }
 code { overflow-wrap: anywhere; }
 
-/* Envelope layers: back, rising letter, folded pocket, flap and seal. */
+/* Envelope layers: back, rising elephant, folded pocket, flap and seal. */
 button { font: inherit; -webkit-tap-highlight-color: transparent; }
 button:focus-visible { outline: 3px solid #824651; outline-offset: 8px; }
 .opening {
@@ -59,7 +59,7 @@ button:focus-visible { outline: 3px solid #824651; outline-offset: 8px; }
 .opening-message { color: #766b5a; font-style: italic; margin-top: 1rem; }
 .envelope-stage {
   width: min(100%, 27rem);
-  padding-top: 5rem;
+  padding-top: clamp(10rem, 32vw, 15rem);
   padding-bottom: 1.5rem;
   perspective: 1000px;
 }
@@ -78,22 +78,19 @@ button:focus-visible { outline: 3px solid #824651; outline-offset: 8px; }
 .envelope-back { position: absolute; inset: 0; background: #dcccac; border-radius: 4px; }
 .letter {
   position: absolute;
-  inset: 5% 9%;
+  inset: 8% 23% 12%;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: .6rem;
-  border: 1px solid #cbbb9c;
-  background: #fffaf0;
+  border: 0;
+  background: transparent;
   color: #654e36;
   visibility: hidden;
-  transition: transform .9s cubic-bezier(.2,.7,.3,1) .85s, visibility 0s .85s;
+  transition: transform .9s cubic-bezier(.2,.7,.3,1);
 }
-.letter>span { font-style: italic; color: #8c6c3c; }
-.letter strong { font-size: clamp(1rem, 4vw, 1.5rem); font-weight: 400; }
-.letter small { font: .6rem system-ui, sans-serif; letter-spacing: .12em; }
 .envelope-pocket {
   position: absolute;
   inset: 0;
@@ -138,7 +135,7 @@ button:focus-visible { outline: 3px solid #824651; outline-offset: 8px; }
 .skip-opening { border: 0; background: none; color: #766b5a; padding: .75rem 1rem; cursor: pointer; font-size: .85rem; text-decoration: underline; text-underline-offset: 4px; }
 .is-opening .seal { opacity: 0; transform: scale(1.25) rotate(12deg); }
 .is-opening .envelope-flap { transform: rotateX(180deg); z-index: 1; }
-.is-opening .letter { visibility: visible; transform: translateY(-58%); }
+.is-opening.is-showing-elephant .letter { visibility: visible; transform: translateY(-95%); }
 .is-opening .tap-hint { visibility: hidden; }
 .envelope:disabled { cursor: default; }
 .invitation:focus { outline: none; }
@@ -164,8 +161,6 @@ button:focus-visible { outline: 3px solid #824651; outline-offset: 8px; }
 .garland-left { left: 2%; }
 .garland-right { right: 2%; transform: scaleX(-1); }
 .envelope-label { bottom: 9%; color: #44667c; font-size: clamp(.85rem, 3vw, 1.05rem); }
-.letter { border-color: #b79a54; background: linear-gradient(#fffaf0, #edf4f7); }
-.letter strong { color: #44667c; }
 
 /* Reference-inspired exterior: blue silk, antique zari, jasmine and brass. */
 .envelope-stage { width: min(100%, 32rem); }
@@ -197,3 +192,5 @@ button:focus-visible { outline: 3px solid #824651; outline-offset: 8px; }
 .envelope .seal { left: calc(39% - 29px); }
 .envelope-label { left: 12%; width: 48%; bottom: 12%; font-size: clamp(.75rem, 2.8vw, 1rem); }
 .kolam { left: 31%; width: 21%; }
+
+.baby-elephant { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
